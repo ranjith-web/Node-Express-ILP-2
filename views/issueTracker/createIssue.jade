@@ -1,0 +1,32 @@
+extends ../layout
+block content
+    .main.container
+        .row
+            .col-md-6.col-md-offset-3
+                h1.display-4.m-b-2 Create New Issues
+
+                form(name="add-estimation", method="post" action='/issueTracker/addIssues')
+                    div.form-group
+                        label(for='Description') Description:
+                        input#description.form-control(type="text", name="description" value="")
+                    div.form-group
+                        label(for='severity') Severity:
+                        select#severity.form-control(name="severity")
+                            option(value="Major", selected="Major") Major
+                            option(value="Minor", selected="Minor") Minor
+                            option(value="critical", selected="critical") Critical
+                    div.form-group
+                        label(for='status') Status:
+                        select#status.form-control(name="status")
+                            option(value="Open", selected="Open") Open
+                            option(value="In Progress", selected=" In Progress")  In Progress
+                            option(value="Closed", selected="Closed") Closed
+                    div.form-group
+                        label(for='created_date') Created Date:
+                        input#created_date.form-control(type='date' name='created_date')
+                    div.form-group
+                        label(for='resolved_date') Resolved Date:
+                        input#resolved_date.form-control(type='date' name='resolved_date')
+                    button.btn.btn-primary(type='submit') Add Issues
+                
+                
